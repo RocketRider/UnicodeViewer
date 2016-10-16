@@ -3,6 +3,8 @@ package com.rrsoftware.unicodeviewer;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import org.apache.commons.lang3.StringUtils;
+
 import static android.content.Context.MODE_PRIVATE;
 
 public class MainModel {
@@ -33,6 +35,31 @@ public class MainModel {
             hexCode = hexCode.substring(0, hexCode.length() - 1);
             updatePresenter();
         }
+    }
+
+    public void incrementLowHexBits() {
+        setHexCode(getHexCodeAsInt() + 1);
+    }
+
+    public void decrementLowHexBits() {
+        setHexCode(getHexCodeAsInt() - 1);
+    }
+
+    public void incrementHighHexBits() {
+        setHexCode(getHexCodeAsInt() + (1 << 8));
+    }
+
+    public void decrementHighHexBits() {
+        setHexCode(getHexCodeAsInt() - (1 << 8));
+    }
+
+    private int getHexCodeAsInt() {
+        return Integer.parseInt(StringUtils.rightPad(hexCode, 4, "0"), 16);
+    }
+
+    private void setHexCode(final int code) {
+        hexCode = StringUtils.right(StringUtils.leftPad(Integer.toHexString(code).toUpperCase(), 4, "0"), 4);
+        updatePresenter();
     }
 
     private void updatePresenter() {

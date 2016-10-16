@@ -23,6 +23,21 @@ public class MainPresenter implements KeyboardPresenter {
         model.deleteKey();
     }
 
+    public void incrementLowHexBits() {
+        model.incrementLowHexBits();
+    }
+
+    public void decrementLowHexBits() {
+        model.decrementLowHexBits();
+    }
+
+    public void incrementHighHexBits() {
+        model.incrementHighHexBits();
+    }
+
+    public void decrementHighHexBits() {
+        model.decrementHighHexBits();
+    }
 
     public void showHexCode(final String hexCode) {
         if (hexCode.length() > 2) {

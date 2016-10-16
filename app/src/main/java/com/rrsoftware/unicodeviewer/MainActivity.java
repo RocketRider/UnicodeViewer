@@ -9,6 +9,7 @@ import com.rrsoftware.unicodeviewer.keyboard.KeyboardAdapter;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     @BindView(R.id.symbol)
@@ -46,5 +47,25 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void showLowBits(final String code) {
         hexCode2.setText(code);
+    }
+
+    @OnClick(R.id.hexCode1Up)
+    public void incrementHighHexBits() {
+        presenter.incrementHighHexBits();
+    }
+
+    @OnClick(R.id.hexCode1Down)
+    public void decrementHighHexBits() {
+        presenter.decrementHighHexBits();
+    }
+
+    @OnClick(R.id.hexCode2Up)
+    public void incrementLowHexBits() {
+        presenter.incrementLowHexBits();
+    }
+
+    @OnClick(R.id.hexCode2Down)
+    public void decrementLowHexBits() {
+        presenter.decrementLowHexBits();
     }
 }
