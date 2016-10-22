@@ -6,9 +6,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 
 public class KeyboardAdapter extends BaseAdapter implements View.OnClickListener {
-    //Because of issue in Jack Compiler we need to use \u2190 instead of the unicode character '←'
-    //https://code.google.com/p/android/issues/detail?id=218892
-    private static final String BACK_KEY = "\u2190";
+    private static final String BACK_KEY = "←";
     private static final String[] elements = new String[]{
             "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", BACK_KEY};
 

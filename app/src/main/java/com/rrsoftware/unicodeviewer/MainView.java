@@ -1,6 +1,5 @@
 package com.rrsoftware.unicodeviewer;
 
-
 public interface MainView {
     void showLowBits(final String code);
 

@@ -2,6 +2,9 @@ package com.rrsoftware.unicodeviewer;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -20,6 +23,8 @@ public class MainActivity extends AppCompatActivity implements MainView {
     TextView hexCode2;
     @BindView(R.id.keyboard)
     GridView keyboard;
+    @BindView(R.id.mainToolbar)
+    Toolbar toolbar;
 
     MainPresenter presenter;
 
@@ -30,8 +35,15 @@ public class MainActivity extends AppCompatActivity implements MainView {
         ButterKnife.bind(this);
 
         presenter = new MainPresenter(this, this);
-
         keyboard.setAdapter(new KeyboardAdapter(presenter));
+
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        toolbar.inflateMenu(R.menu.maintoolbar);
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -67,5 +79,20 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @OnClick(R.id.hexCode2Down)
     public void decrementLowHexBits() {
         presenter.decrementLowHexBits();
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(final MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.close:
+                finish();
+                //finish() does not kill it completely, but it is the way we are supposed to do it!
+                //Not appropriate ways to kill it:
+                //1) System.exit(0);
+                //2) android.os.Process.killProcess(android.os.Process.myPid());
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

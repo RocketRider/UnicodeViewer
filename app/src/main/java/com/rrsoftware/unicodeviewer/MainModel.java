@@ -12,14 +12,14 @@ public class MainModel {
     private static final String PREF_HEXCODE = "hexCode";
 
     private String hexCode;
-    final MainPresenter presenter;
-    final SharedPreferences prefernces;
+    private final MainPresenter presenter;
+    private final SharedPreferences preferences;
 
 
     public MainModel(final MainPresenter presenter, Context context) {
         this.presenter = presenter;
-        prefernces = context.getSharedPreferences(PREF_KEY, MODE_PRIVATE);
-        hexCode = prefernces.getString(PREF_HEXCODE, "");
+        preferences = context.getSharedPreferences(PREF_KEY, MODE_PRIVATE);
+        hexCode = preferences.getString(PREF_HEXCODE, "");
         presenter.showHexCode(hexCode);
     }
 
@@ -65,7 +65,7 @@ public class MainModel {
     private void updatePresenter() {
         presenter.showHexCode(hexCode);
 
-        SharedPreferences.Editor editor = prefernces.edit();
+        SharedPreferences.Editor editor = preferences.edit();
         editor.putString(PREF_HEXCODE, hexCode);
         editor.apply();
     }
