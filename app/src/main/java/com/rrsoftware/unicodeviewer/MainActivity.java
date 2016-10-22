@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         toolbar.inflateMenu(R.menu.maintoolbar);
-        return super.onCreateOptionsMenu(menu);
+        return true;
     }
 
     @Override
@@ -85,6 +85,12 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.settings:
+                //TODO
+                break;
+            case R.id.about:
+                //TODO
+                break;
             case R.id.close:
                 finish();
                 //finish() does not kill it completely, but it is the way we are supposed to do it!
