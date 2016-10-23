@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
                 //TODO
                 break;
             case R.id.about:
-                //TODO
+                new AboutDialog().show(getFragmentManager(), "About");
                 break;
             case R.id.close:
                 finish();
