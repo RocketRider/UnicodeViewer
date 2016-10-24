@@ -16,8 +16,8 @@ inkrementiert und dekrementiert werden können.
   - Fontgröße (z.B. 18pt)
   - Fonttyp (z.B. Arial, Times Roman, ...)
   - Fontstil (z.B. normal, kursiv, fett, ...)
-    - Schriftfarbe
-- Hintergrundfarbe des Ausgabetextbereichs
+  - Schriftfarbe
+  - Hintergrundfarbe des Ausgabetextbereichs
 * Es ist mindestens die HD-Displaygröße von 1280 x 720 Pixeln zu unterstützten.
 * Das GUI wird automatisch für Hoch- oder Querformat ergonomisch und ansprechend angeordnet.
 * Alle Eingaben sind bei Pausierung oder Beendigung der App zu speichern und als Voreinstellung
