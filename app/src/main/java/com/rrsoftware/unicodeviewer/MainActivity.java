@@ -1,6 +1,8 @@
 package com.rrsoftware.unicodeviewer;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.ColorInt;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -54,6 +56,26 @@ public class MainActivity extends AppCompatActivity implements MainView {
     @Override
     public void showUnicodeSymbol(final String symbol) {
         this.symbol.setText(symbol);
+    }
+
+    @Override
+    public void setSymbolColor(@ColorInt final int color) {
+        symbol.setTextColor(color);
+    }
+
+    @Override
+    public void setSymbolBGColor(@ColorInt final int color) {
+        symbol.setBackgroundColor(color);
+    }
+
+    @Override
+    public void setSymbolFont(final Typeface font) {
+        symbol.setTypeface(font);
+    }
+
+    @Override
+    public void setSymbolSize(final float size) {
+        symbol.setTextSize(size);
     }
 
     @Override
