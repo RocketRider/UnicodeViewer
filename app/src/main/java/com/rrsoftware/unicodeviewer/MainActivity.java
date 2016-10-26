@@ -18,17 +18,17 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     @BindView(R.id.symbol)
-    TextView symbol;
+    private TextView symbol;
     @BindView(R.id.hexCode1)
-    TextView hexCode1;
+    private TextView hexCode1;
     @BindView(R.id.hexCode2)
-    TextView hexCode2;
+    private TextView hexCode2;
     @BindView(R.id.keyboard)
-    GridView keyboard;
+    private GridView keyboard;
     @BindView(R.id.mainToolbar)
-    Toolbar toolbar;
+    private Toolbar toolbar;
 
-    MainPresenter presenter;
+    private MainPresenter presenter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
