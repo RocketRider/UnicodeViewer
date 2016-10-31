@@ -1,5 +1,6 @@
 package com.rrsoftware.unicodeviewer;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
@@ -18,15 +19,15 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity implements MainView {
     @BindView(R.id.symbol)
-    private TextView symbol;
+    TextView symbol;
     @BindView(R.id.hexCode1)
-    private TextView hexCode1;
+    TextView hexCode1;
     @BindView(R.id.hexCode2)
-    private TextView hexCode2;
+    TextView hexCode2;
     @BindView(R.id.keyboard)
-    private GridView keyboard;
+    GridView keyboard;
     @BindView(R.id.mainToolbar)
-    private Toolbar toolbar;
+    Toolbar toolbar;
 
     private MainPresenter presenter;
 
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements MainView {
     public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.settings:
-                //TODO
+                startActivity(new Intent(this, PreferenceActivity.class));
                 break;
             case R.id.about:
                 new AboutDialog().show(getFragmentManager(), "About");

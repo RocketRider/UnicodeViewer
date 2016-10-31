@@ -33,4 +33,7 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 
     compile 'org.apache.commons:commons-lang3:3.4'
+
+    // compile 'com.thebluealliance:spectrum:0.6.0'
+    compile 'com.github.kizitonwose.colorpreference:core:1.0.2'
 }

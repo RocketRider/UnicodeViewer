@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <ListPreference
+        android:key="Font"
+        android:title="Select font" />
+    <EditTextPreference
+        android:inputType="number"
+        android:key="Size"
+        android:title="Symbol size" />
+
+    <com.kizitonwose.colorpreference.ColorPreference
+        android:defaultValue="@android:color/black"
+        android:key="SymbolColor"
+        android:title="Symbol color" />
+
+    <com.kizitonwose.colorpreference.ColorPreference
+        android:defaultValue="@android:color/transparent"
+        android:key="BGColor"
+        android:title="Background color" />
+</PreferenceScreen>

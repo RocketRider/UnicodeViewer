@@ -14,8 +14,7 @@
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-        />
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -75,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/hexCode"
             android:layout_alignTop="@id/hexCode"
+            android:layout_marginStart="5dp"
             android:layout_toEndOf="@id/hexCode"
             android:gravity="center"
             tools:text="U" />

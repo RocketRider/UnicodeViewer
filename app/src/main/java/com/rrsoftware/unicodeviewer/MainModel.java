@@ -4,11 +4,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.annotation.ColorInt;
 
-import org.apache.commons.lang3.StringUtils;
+import com.rrsoftware.unicodeviewer.utils.FontUtil;
 
-import static android.content.Context.MODE_PRIVATE;
+import org.apache.commons.lang3.StringUtils;
 
 class MainModel implements SharedPreferences.OnSharedPreferenceChangeListener {
     private static final String PREF_KEY = "UnicodeViewer";
@@ -26,7 +27,7 @@ class MainModel implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     MainModel(final MainPresenter presenter, Context context) {
         this.presenter = presenter;
-        preferences = context.getSharedPreferences(PREF_KEY, MODE_PRIVATE);
+        preferences = PreferenceManager.getDefaultSharedPreferences(context);
         preferences.registerOnSharedPreferenceChangeListener(this);
         hexCode = preferences.getString(PREF_HEXCODE, "");
         presenter.showHexCode(hexCode);
@@ -81,8 +82,8 @@ class MainModel implements SharedPreferences.OnSharedPreferenceChangeListener {
     private void setStyle(final SharedPreferences pref) {
         @ColorInt final int symbolColor = pref.getInt(PREF_SYMBOL_COLOR, Color.BLACK);
         @ColorInt final int bgColor = pref.getInt(PREF_BG_COLOR, Color.TRANSPARENT);
-        final int symbolSize = pref.getInt(PREF_SIZE, 24);
-        final Typeface font = Typeface.create(pref.getString(PREF_FONT, "Arial"), pref.getInt(PREF_FONT_STYLE, Typeface.NORMAL));
+        final int symbolSize = Integer.parseInt(pref.getString(PREF_SIZE, "24"));
+        final Typeface font = FontUtil.loadFont(pref.getString(PREF_FONT, "Arial.ttf"));
 
         presenter.setViewStyle(symbolColor, bgColor, font, symbolSize);
     }
