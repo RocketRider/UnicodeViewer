@@ -25,7 +25,11 @@ public final class FontUtil {
     }
 
     public static Typeface loadFont(final String name) {
-        return Typeface.createFromFile(path + '/' + name);
+        try {
+            return Typeface.createFromFile(path + '/' + name);
+        } catch (Exception e) {
+            return Typeface.DEFAULT;
+        }
     }
 
 }
