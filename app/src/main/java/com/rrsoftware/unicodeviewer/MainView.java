@@ -3,7 +3,7 @@ package com.rrsoftware.unicodeviewer;
 import android.graphics.Typeface;
 import android.support.annotation.ColorInt;
 
-public interface MainView {
+interface MainView {
     void showLowBits(final String code);
 
     void showHighBits(final String code);

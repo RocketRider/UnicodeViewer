@@ -3,30 +3,27 @@ package com.rrsoftware.unicodeviewer.utils;
 import android.graphics.Typeface;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 
 public final class FontUtil {
-    private final static String path = "/system/fonts";
+    private final static String PATH = "/system/fonts";
 
     private FontUtil() {
         //Util class
     }
 
-
     public static String[] getAllFonts() {
-        final File file = new File(path);
-        final File ff[] = file.listFiles();
-        final List<String> fonts = new ArrayList<>(ff.length);
-        for (File fontFile : ff) {
-            fonts.add(fontFile.getName());
+        final File ff[] = new File(PATH).listFiles();
+        final int numFiles = ff.length;
+        final String[] fonts = new String[numFiles];
+        for (int i = 0; i < numFiles; ++i) {
+            fonts[i] = ff[i].getName();
         }
-        return fonts.toArray(new String[0]);
+        return fonts;
     }
 
     public static Typeface loadFont(final String name) {
         try {
-            return Typeface.createFromFile(path + '/' + name);
+            return Typeface.createFromFile(PATH + '/' + name);
         } catch (Exception e) {
             return Typeface.DEFAULT;
         }

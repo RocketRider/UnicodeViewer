@@ -12,10 +12,8 @@ import com.rrsoftware.unicodeviewer.utils.FontUtil;
 import org.apache.commons.lang3.StringUtils;
 
 class MainModel implements SharedPreferences.OnSharedPreferenceChangeListener {
-    private static final String PREF_KEY = "UnicodeViewer";
     private static final String PREF_HEXCODE = "HexCode";
     private static final String PREF_FONT = "Font";
-    private static final String PREF_FONT_STYLE = "FontStyle";
     private static final String PREF_SIZE = "Size";
     private static final String PREF_BG_COLOR = "BGColor";
     private static final String PREF_SYMBOL_COLOR = "SymbolColor";
